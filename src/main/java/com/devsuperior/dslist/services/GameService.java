@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class GameService {
@@ -22,12 +23,12 @@ public class GameService {
         Game result = gameRepository.findById(id).get();
         return new GameDTO(result);
     }
-
     @Transactional(readOnly = true)
     public List<GameMinDTO> findAll(){
         List<Game> result = gameRepository.findAll();
         return result.stream().map(x -> new GameMinDTO(x)).toList();
     }
+<<<<<<< HEAD
 
     @Transactional(readOnly = true)
     public List<GameMinDTO> findByList(Long listId){
@@ -35,3 +36,6 @@ public class GameService {
         return result.stream().map(x -> new GameMinDTO(x)).toList();
     }
 }
+=======
+}
+>>>>>>> 1c08b6e577371feb6362c8db086e1f70d90d1070
